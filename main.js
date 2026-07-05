@@ -17,11 +17,18 @@
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Mengambil API Key dari LocalStorage demi keamanan.
- * Dengan metode ini, API Key tidak bocor ke repositori Git / GitHub.
+ * Placeholder ini akan OTOMATIS diganti oleh GitHub Actions
+ * dengan API Key asli dari GitHub Repository Secret saat deploy.
+ * Jangan ubah teks __GEMINI_API_KEY__ ini secara manual.
+ */
+const INJECTED_API_KEY = "__GEMINI_API_KEY__";
+
+/**
+ * Mengambil API Key dari LocalStorage (jika sudah diatur via ⚙️),
+ * atau menggunakan key yang disuntikkan oleh GitHub Actions.
  */
 function getGeminiAPIKey() {
-  return localStorage.getItem("SOBAT_CURHAT_GEMINI_API_KEY") || "";
+  return localStorage.getItem("SOBAT_CURHAT_GEMINI_API_KEY") || INJECTED_API_KEY;
 }
 
 /**
