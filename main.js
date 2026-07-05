@@ -399,12 +399,12 @@ async function handleSendMessage() {
 
     // Tampilkan pesan error yang informatif namun tetap ramah
     const errorMessage = error.message === "API_KEY_NOT_CONFIGURED"
-      ? "Halo! Sobat Curhat AI membutuhkan API Key untuk menjawab. 🔧 Pengaturan API Key telah dibuka secara otomatis. Silakan masukkan API Key Anda lalu kirim pesan lagi ya!"
+      ? "Halo! Sepertinya Sobat Curhat AI belum dikonfigurasi oleh Guru BK. 🔧 Guru BK bisa mengatur API Key dengan klik tombol <strong>⚙️</strong> di pojok kanan atas kotak obrolan ini. Tenang ya, ini bukan salah kamu! 😊"
       : error.message.includes("API_KEY_INVALID") || error.message.includes("400")
-        ? "Maaf, API Key yang dimasukkan tidak valid atau kuota habis. 🔧 Silakan periksa kembali pengaturan API Key Anda!"
+        ? "Maaf, API Key yang dimasukkan tidak valid atau kuota habis. 🔧 Guru BK dapat memeriksa kembali API Key melalui tombol ⚙️ di atas ya!"
         : `Maaf, aku sedang mengalami gangguan teknis. Coba kirim pesanmu lagi sebentar ya! 😊 (Error: ${error.message})`;
 
-    appendMessage(errorMessage, "ai");
+    appendMessage(errorMessage, "ai", true);
   } finally {
     // Aktifkan kembali tombol kirim setelah proses selesai (berhasil maupun gagal)
     sendBtnEl.disabled = false;
@@ -544,11 +544,9 @@ window.addEventListener("scroll", function () {
   // Beri fokus pada input setelah halaman siap (opsional, hanya jika di atas fold)
   // userInputEl.focus();
 
-  // Jika API Key belum diset, buka modal pengaturan secara otomatis
-  if (!getGeminiAPIKey()) {
-    showApiModal();
-  }
-
   // Log singkat untuk debugging (akan muncul di Console browser)
   console.log("✅ Sobat Curhat AI berhasil dimuat.");
+  if (!getGeminiAPIKey()) {
+    console.log("💡 API Key belum dikonfigurasi. Guru BK dapat mengatur melalui tombol ⚙️ di chatbox.");
+  }
 })();
