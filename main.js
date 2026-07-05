@@ -449,9 +449,11 @@ function hideApiModal() {
 sendBtnEl.addEventListener("click", handleSendMessage);
 
 /**
- * Event Listener 7: Pengaturan API Key (Modal)
+ * Event Listener 7: Pengaturan API Key (Modal) — opsional jika tombol ada
  */
-settingsBtnEl.addEventListener("click", showApiModal);
+if (settingsBtnEl) {
+  settingsBtnEl.addEventListener("click", showApiModal);
+}
 closeModalBtnEl.addEventListener("click", hideApiModal);
 
 // Tutup modal jika mengklik di luar area konten modal
