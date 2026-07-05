@@ -28,7 +28,9 @@ const INJECTED_API_KEY = "__GEMINI_API_KEY__";
  * atau menggunakan key yang disuntikkan oleh GitHub Actions.
  */
 function getGeminiAPIKey() {
-  return localStorage.getItem("SOBAT_CURHAT_GEMINI_API_KEY") || INJECTED_API_KEY;
+  // Jika INJECTED_API_KEY masih berupa placeholder (sed belum berjalan), kembalikan string kosong
+  const injected = INJECTED_API_KEY === "__GEMINI_API_KEY__" ? "" : INJECTED_API_KEY;
+  return localStorage.getItem("SOBAT_CURHAT_GEMINI_API_KEY") || injected;
 }
 
 /**
@@ -36,7 +38,7 @@ function getGeminiAPIKey() {
  */
 function getGeminiAPIURL() {
   const key = getGeminiAPIKey();
-  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${key}`;
+  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`;
 }
 
 // ─────────────────────────────────────────────────────────────
