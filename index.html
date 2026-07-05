@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Sobat Curhat AI – Ruang aman dan anonim untuk siswa SMP berbagi cerita dan mendapatkan dukungan kesehatan mental dari AI konselor BK." />
+  <title>Sobat Curhat AI 🤖 | Ruang Aman Curhat Siswa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================
+       NAVBAR
+  ============================= -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <span class="logo-icon">🤖</span>
+        <span class="logo-text">Sobat Curhat AI</span>
+      </div>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="#hero" class="nav-link">Beranda</a></li>
+        <li><a href="#about" class="nav-link">Tentang</a></li>
+        <li><a href="#chatbox" class="nav-link">Mulai Chat</a></li>
+        <li><a href="#footer" class="nav-link">Kontak BK</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO SECTION
+  ============================= -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-badge">✨ Anonim & Rahasia</span>
+        <h1 class="hero-title">Hai, Kamu Tidak Sendirian!</h1>
+        <p class="hero-subtitle">
+          Sobat Curhat AI hadir sebagai teman cerita digitalmu yang aman, jujur, dan tanpa menghakimi.
+          Ceritakan apa yang kamu rasakan sekarang.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-icon">🛡️</span>
+            <span>100% Anonim</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">💬</span>
+            <span>Respons Instan</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">❤️</span>
+            <span>Tanpa Stigma</span>
+          </div>
+        </div>
+        <a href="#chatbox" class="btn-primary" id="cta-start">
+          <span>Mulai Obrolan Aman</span>
+          <span class="btn-icon">→</span>
+        </a>
+      </div>
+      <div class="hero-image-wrapper">
+        <!-- Ilustrasi SVG remaja SMP -->
+        <div class="hero-illustration">
+          <img src="ilustrasi sobat curhat ai.jpeg" alt="Ilustrasi konseling Sobat Curhat AI" class="hero-img"
+            id="hero-img" />
+          <div class="img-decoration img-decoration-1"></div>
+          <div class="img-decoration img-decoration-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path fill="#f8fafc" fill-opacity="1"
+          d="M0,40L60,50C120,60,240,80,360,80C480,80,600,60,720,50C840,40,960,40,1080,50C1200,60,1320,70,1380,75L1440,80L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z">
+        </path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================
+       ABOUT / VALUE SECTION
+  ============================= -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">Kenapa Kamu Butuh Sobat Curhat AI?</h2>
+      <p class="section-subtitle">Kesehatan mental kamu sama pentingnya dengan prestasi akademik. Temukan dukungan yang
+        kamu butuhkan.</p>
+      <div class="cards-grid">
+        <div class="card" id="card-1">
+          <div class="card-icon">🎭</div>
+          <h3>Stres Akademik</h3>
+          <p>Takut tidak lulus ujian? Tugas menumpuk? Ceritakan, dan dapatkan tips manajemen waktu yang efektif.</p>
+        </div>
+        <div class="card" id="card-2">
+          <div class="card-icon">🤝</div>
+          <h3>Tekanan Teman</h3>
+          <p>Merasa dijauhi atau menghadapi tekanan teman sebaya? AI kami siap mendengar dan membantumu merespons dengan
+            bijak.</p>
+        </div>
+        <div class="card" id="card-3">
+          <div class="card-icon">😟</div>
+          <h3>Kecemasan & Emosi</h3>
+          <p>Kecemasan dan emosi negatif itu normal. Pelajari teknik pernapasan dan regulasi emosi secara langsung.</p>
+        </div>
+        <div class="card" id="card-4">
+          <div class="card-icon">🔒</div>
+          <h3>Privasi Terjaga</h3>
+          <p>Tidak ada nama, tidak ada rekaman. Semua curhatanmu tetap rahasia — hanya kamu dan AI-mu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CHATBOX SECTION
+  ============================= -->
+  <section class="chat-section" id="chatbox">
+    <div class="container">
+      <h2 class="section-title">Mulai Cerita Sekarang</h2>
+      <p class="section-subtitle">Ketik apa yang kamu rasakan di bawah ini. AI Sobat Curhat siap menjawab dengan hangat.
+      </p>
+
+      <div class="chatbox-wrapper" id="chatbox-wrapper">
+        <!-- Header chatbox -->
+        <div class="chatbox-header">
+          <div class="chatbox-avatar">🤖</div>
+          <div class="chatbox-info">
+            <p class="chatbox-name">Sobat Curhat AI</p>
+            <p class="chatbox-status">
+              <span class="status-dot"></span>
+              Online • Siap mendengarkanmu
+            </p>
+          </div>
+          <div class="chatbox-actions" style="display: flex; gap: 8px; align-items: center;">
+            <button class="settings-btn" id="settings-btn" aria-label="Pengaturan API Key" title="Pengaturan API Key"
+              style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 4px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">⚙️</button>
+            <span class="secure-badge">🔒 Aman</span>
+          </div>
+        </div>
+
+        <!-- Area pesan -->
+        <div class="chat-messages" id="chat-messages">
+          <!-- Pesan pertama dari AI (tidak perlu API) -->
+          <div class="message ai-message" id="welcome-message">
+            <div class="message-avatar">🤖</div>
+            <div class="message-bubble ai-bubble">
+              <p>Halo! 👋 Aku <strong>Sobat Curhat AI</strong>, teman cerita digitalmu.</p>
+              <p>Kamu bisa ceritakan apa saja yang kamu rasakan tentang sekolah, teman, atau perasaanmu. Aku di sini
+                untuk mendengarkan tanpa menghakimi. Semua yang kamu ceritakan, hanya kita berdua yang tahu. 🤝</p>
+              <p>Apa yang sedang kamu rasakan hari ini? 💬</p>
+            </div>
+            <span class="message-time">Sekarang</span>
+          </div>
+        </div>
+
+        <!-- Typing indicator (tersembunyi secara default) -->
+        <div class="typing-indicator" id="typing-indicator" style="display:none;">
+          <div class="message-avatar">🤖</div>
+          <div class="typing-bubble">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="typing-text">Sobat Curhat sedang mengetik...</span>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+          <div class="input-wrapper">
+            <textarea id="user-input" class="chat-input" placeholder="Ceritakan apa yang kamu rasakan..." rows="1"
+              aria-label="Ketik pesanmu di sini"></textarea>
+            <button class="send-btn" id="send-btn" aria-label="Kirim pesan">
+              <!-- Ikon pesawat kertas (⟩ diganti SVG) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path
+                  d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+              </svg>
+            </button>
+          </div>
+          <p class="input-hint">Tekan Enter atau klik tombol kirim • Semua percakapan bersifat anonim</p>
+        </div>
+
+        <!-- Tombol eskalasi di dalam chatbox -->
+        <div class="chat-escalation">
+          <p>Butuh bantuan langsung dari Guru BK sekolah?</p>
+          <a href="https://wa.me/6281234567890?text=Halo%20Bu%2FPak%20Guru%20BK%2C%20saya%20butuh%20bantuan%20konseling."
+            target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="wa-chat-btn">
+            <span>💬</span> Chat Guru BK via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER / ESCALATION CTA
+  ============================= -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-escalation">
+        <h3>🚨 Butuh Bantuan Lebih Lanjut?</h3>
+        <p>Jika kamu merasa dalam situasi darurat, segera hubungi Guru BK sekolahmu secara langsung. Kamu tidak harus
+          menghadapi ini sendirian!</p>
+        <a href="https://wa.me/6281234567890?text=Halo%20Bu%2FPak%20Guru%20BK%2C%20saya%20butuh%20bantuan%20konseling%20segera."
+          target="_blank" rel="noopener noreferrer" class="btn-whatsapp btn-whatsapp-large" id="wa-footer-btn">
+          <span>📞</span> Hubungi Guru BK via WhatsApp
+        </a>
+      </div>
+      <div class="footer-info">
+        <div class="footer-logo">
+          <span>🤖</span>
+          <strong>Sobat Curhat AI</strong>
+        </div>
+        <p class="footer-tagline">Dibuat dengan ❤️ untuk kesehatan mental remaja Indonesia</p>
+        <p class="footer-credit">Proyek Akhir Perempuan Inovasi × IBM SkillsBuild 2026 <br>Developed by Prawita
+          Mepilianti
+        </p>
+        <div class="footer-disclaimer">
+          <p>⚠️ Sobat Curhat AI adalah alat bantu awal dan BUKAN pengganti konseling profesional. Untuk situasi darurat,
+            selalu hubungi guru atau orang dewasa terpercaya di sekitarmu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Sobat Curhat AI · Perempuan Inovasi × IBM SkillsBuild</p>
+    </div>
+  </footer>
+
+
+  <!-- ============================
+       MODAL CONFIG API KEY
+  ============================= -->
+  <div class="modal-overlay" id="api-modal"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 999; justify-content: center; align-items: center; padding: 20px; transition: opacity 0.3s ease;">
+    <div class="modal-content"
+      style="background: var(--color-white); width: 100%; max-width: 480px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); overflow: hidden; animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(226, 232, 240, 0.8);">
+      <div class="modal-header"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--color-border); background: #f8fafc;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--color-text); margin: 0;">⚙️ Pengaturan Sobat Curhat
+          AI</h3>
+        <button class="close-modal-btn" id="close-modal-btn" aria-label="Tutup modal"
+          style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text-light); transition: color 0.2s;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 24px; font-size: 0.88rem; color: #4a5568; line-height: 1.6;">
+        <p style="margin-bottom: 16px;">Aplikasi ini membutuhkan <strong>Google Gemini API Key</strong> untuk bekerja.
+          Demi keamanan, API key Anda disimpan 100% secara lokal di browser ini saja (tidak dikirim ke GitHub atau
+          server luar).</p>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="api-key-input"
+            style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--color-text);">Gemini API
+            Key:</label>
+          <input type="password" id="api-key-input" placeholder="Masukkan API Key (contoh: AIzaSy...)"
+            class="form-control"
+            style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); font-family: monospace; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" />
+        </div>
+        <p class="key-hint" style="font-size: 0.78rem; color: var(--color-text-light); margin: 0;">
+          Dapatkan API key secara gratis dari <a href="https://aistudio.google.com/" target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--color-primary); text-decoration: underline; font-weight: 500;">Google AI Studio</a>.
+        </p>
+      </div>
+      <div class="modal-footer"
+        style="padding: 16px 24px; border-top: 1px solid var(--color-border); background: #f8fafc; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+        <button class="btn-secondary" id="reset-key-btn"
+          style="background: #f1f5f9; border: 1px solid var(--color-border); color: #64748b; padding: 8px 16px; border-radius: 8px; font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Hapus
+          Key</button>
+        <button class="btn-primary-sm" id="save-key-btn"
+          style="background: var(--color-primary); border: none; color: var(--color-white); padding: 8px 20px; border-radius: 8px; font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes modalPop {
+      from {
+        transform: scale(0.9) translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
