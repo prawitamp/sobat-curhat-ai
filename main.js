@@ -27,8 +27,8 @@ const INJECTED_API_KEY = "__GEMINI_API_KEY__";
  * Menggunakan key yang disuntikkan oleh GitHub Actions.
  */
 function getGeminiAPIKey() {
-  // Jika INJECTED_API_KEY masih berupa placeholder (sed belum berjalan), kembalikan string kosong
-  const injected = INJECTED_API_KEY === "__GEMINI_API_KEY__" ? "" : INJECTED_API_KEY;
+  // Gunakan startsWith("__") untuk cek placeholder — aman dari sed yang mengganti semua teks
+  const injected = INJECTED_API_KEY.startsWith("__") ? "" : INJECTED_API_KEY;
   return localStorage.getItem("SOBAT_CURHAT_GEMINI_API_KEY") || injected;
 }
 
