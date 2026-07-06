@@ -7,7 +7,7 @@
  *   File ini menangani semua logika interaktif chatbot, mulai dari:
  *   1. Penangkapan input pengguna (siswa SMP)
  *   2. Manipulasi DOM untuk menampilkan balon chat
- *   3. Pemanggilan Gemini API (gemini-2.0-flash) dengan fetch()
+ *   3. Pemanggilan Gemini API (gemini-3.1-flash-lite) dengan fetch()
  *   4. Sistem safeguarding otomatis untuk situasi darurat
  * ============================================================
  */
@@ -37,7 +37,7 @@ function getGeminiAPIKey() {
  */
 function getGeminiAPIURL() {
   const key = getGeminiAPIKey();
-  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${key}`;
+  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${key}`;
 }
 
 // ─────────────────────────────────────────────────────────────
