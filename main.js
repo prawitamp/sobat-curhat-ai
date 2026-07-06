@@ -33,11 +33,26 @@ function getGeminiAPIKey() {
 }
 
 /**
- * Mendapatkan URL Endpoint Gemini dengan API Key yang aktif.
+ * Daftar model fallback yang akan dicoba secara berurutan
+ * jika kuota model sebelumnya habis (error 429).
+ * - gemini-3.1-flash-lite : 500 RPD (utama)
+ * - gemini-2.5-flash-lite : 20 RPD (cadangan)
+ * - gemini-1.5-flash      : standard free tier (terakhir)
+ */
+const FALLBACK_MODELS = [
+  "gemini-3.1-flash-lite",
+  "gemini-2.5-flash-lite",
+  "gemini-1.5-flash",
+];
+let currentModelIndex = 0;
+
+/**
+ * Mendapatkan URL Endpoint Gemini berdasarkan model yang aktif saat ini.
  */
 function getGeminiAPIURL() {
   const key = getGeminiAPIKey();
-  return `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${key}`;
+  const model = FALLBACK_MODELS[currentModelIndex];
+  return `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -319,39 +334,46 @@ async function callGeminiAPI(userMessage) {
     throw new Error("API_KEY_NOT_CONFIGURED");
   }
 
-  // Kirim permintaan ke Gemini API menggunakan Fetch API (HTTP POST)
-  const response = await fetch(getGeminiAPIURL(), {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(requestBody),
-  });
+  // Coba kirim ke model yang aktif, fallback ke model berikutnya jika kuota habis (429)
+  while (currentModelIndex < FALLBACK_MODELS.length) {
+    const response = await fetch(getGeminiAPIURL(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
 
-  // Periksa apakah HTTP request berhasil
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(
-      `API Error ${response.status}: ${errorData?.error?.message || response.statusText}`
-    );
+    if (response.status === 429 && currentModelIndex < FALLBACK_MODELS.length - 1) {
+      // Kuota model saat ini habis — coba model berikutnya
+      currentModelIndex++;
+      console.warn(`⚠️ Kuota ${FALLBACK_MODELS[currentModelIndex - 1]} habis. Beralih ke ${FALLBACK_MODELS[currentModelIndex]}...`);
+      continue;
+    }
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        `API Error ${response.status}: ${errorData?.error?.message || response.statusText}`
+      );
+    }
+
+    // Parsing respons JSON dari Gemini API
+    const data = await response.json();
+    const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!aiText) {
+      throw new Error("Respons AI kosong atau tidak valid.");
+    }
+
+    // Simpan respons AI ke riwayat percakapan untuk konteks multi-turn
+    chatHistory.push({
+      role: "model",
+      parts: [{ text: aiText }],
+    });
+
+    return aiText;
   }
 
-  // Parsing respons JSON dari Gemini API
-  const data = await response.json();
-
-  // Ekstrak teks respons dari struktur JSON Gemini
-  // Struktur: data.candidates[0].content.parts[0].text
-  const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-  if (!aiText) {
-    throw new Error("Respons AI kosong atau tidak valid.");
-  }
-
-  // Simpan respons AI ke riwayat percakapan untuk konteks multi-turn
-  chatHistory.push({
-    role: "model",
-    parts: [{ text: aiText }],
-  });
-
-  return aiText;
+  throw new Error("Semua model AI sedang tidak tersedia karena kuota habis. Coba lagi besok.");
 }
 
 // ─────────────────────────────────────────────────────────────
